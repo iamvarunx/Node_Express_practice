@@ -14,12 +14,12 @@ const server = http.createServer((req,res)=>{
     }
 
    // redirect
-    // if(url==='/message' && method == 'POST'){                          //setting post in above form for submit
-    //     fs.writeFileSync('hello.text','dummy text')
-    //     res.setHeader('Location','/')
-    //     res.statusCode = 302;
-    //     return res.end()
-    // }
+    if(url==='/message' && method == 'POST'){                          //setting post in above form for submit
+        fs.writeFileSync('hello.text','dummy text')
+        res.setHeader('Location','/')
+        res.statusCode = 302;
+        return res.end()
+    }
 
     res.setHeader('Content-Type','text/html')
     res.write('<html>')
