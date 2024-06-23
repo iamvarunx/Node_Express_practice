@@ -1,6 +1,6 @@
-const http = require('http');
-const fs = require('fs')
-const server = http.createServer((req,res)=>{
+import { createServer } from 'http';
+import { writeFileSync } from 'fs';
+ const server = createServer((req,res)=>{
     const url = req.url
     const method = req.method
     if(url=='/')
@@ -15,7 +15,7 @@ const server = http.createServer((req,res)=>{
 
    // redirect
     if(url==='/message' && method == 'POST'){                          //setting post in above form for submit
-        fs.writeFileSync('hello.text','dummy text')
+        writeFileSync('hello.text','dummy text')
         res.setHeader('Location','/')
         res.statusCode = 302;
         return res.end()
